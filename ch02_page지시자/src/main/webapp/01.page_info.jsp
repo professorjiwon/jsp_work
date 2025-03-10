@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <%@ page info = "JSP 사용방법 공부하기" %>
 <%@ page import="java.util.*" 
 		 session="false" 

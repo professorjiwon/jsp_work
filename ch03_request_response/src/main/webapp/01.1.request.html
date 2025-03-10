@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Request</title>
+</head>
+<body>
+	<h1>Request Ex1</h1>
+	<form action="01.2.request.jsp" method="post">
+		이름 : <input name="name"><p/>
+		학번 : <input name="studentNum"><p/>
+		성별 : <input type="radio" name="gender" value="M" checked>남&emsp;
+				<input type="radio" name="gender" value="F" checked>여<p/>
+		전공 : <select name="major">
+				<option value="국문학과">국문학과</option>
+				<option value="영문학과">영문학과</option>
+				<option value="수학과">수학과</option>
+				<option value="컴퓨터공학과">컴퓨터공학과</option>
+			</select>
+		취미 : <input type="checkbox" name="hobby" value="볼링">볼링&emsp;
+			<input type="checkbox" name="hobby" value="여행">여행&emsp;
+			<input type="checkbox" name="hobby" value="글쓰기">글쓰기&emsp;
+			<input type="checkbox" name="hobby" value="축구">축구<p/>
+			
+		<input type="submit" value="서버로 전송">
+	</form>
+</body>
+</html>

@@ -49,4 +49,14 @@
     <servlet-name>PostServlet04</servlet-name>
     <url-pattern>/PostServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginServlet05</display-name>
+    <servlet-name>LoginServlet05</servlet-name>
+    <servlet-class>ch04_servlet.LoginServlet05</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet05</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

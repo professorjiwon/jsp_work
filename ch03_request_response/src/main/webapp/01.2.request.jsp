@@ -25,11 +25,26 @@
 	성별 : <%=gender %><p/>
 	학과 : <%=major %><p/>
 	취미 : 
+
 	<%
 		// 일반 for문
-		
+		for(int i=0; i<hobby.length; i++) {
+			out.print(hobby[i] + ", ");
+		}
 		// 향상된 for문
-		
+		for(String h : hobby) {
+			out.print(h + ", ");
+		}
 	%>
+	
+<%-- 	
+	<%
+		for(int i=0; i<hobby.length; i++) {
+	%>
+			<%=hobby[i] %>, 
+	<%
+		}
+	%>
+--%>
 </body>
 </html>

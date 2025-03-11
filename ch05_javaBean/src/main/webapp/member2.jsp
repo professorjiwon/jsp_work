@@ -9,7 +9,7 @@
 </head>
 <body>
 	<table border="1" align="center">
-		<form method="post" action="memberProc.jsp">
+		<form method="post" action="memberProc.jsp" name="regForm">
 			<tr>
 				<th colspan="2">회 원 가 입</th>
 			</tr>

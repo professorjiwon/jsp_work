@@ -17,9 +17,9 @@
 			<th>사무실 위치코드</th>
 		</tr>
 	<%
-		ArrayList<Bean> alist = uBean.getList();
-		for(int i=0; i<alist.size(); i++) {
-			Bean bean = alist.get(i);
+		ArrayList<Bean> list = uBean.getList();
+		for(int i=0; i<list.size(); i++) {
+			Bean bean = list.get(i);
 	%>
 		<tr>
 			<td><%=bean.getDept_id() %></td>

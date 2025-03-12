@@ -25,3 +25,4 @@ COMMENT ON COLUMN MEMBER.HOBBY IS '회원취미';
 COMMENT ON COLUMN MEMBER.JOB IS '회원직업';
 
 insert into member values('kim','1234','홍길동','1','980312','kim@naver.com','12345','서울특별시 강남구 한국빌딩', '801호','11010','학생');
+commit;

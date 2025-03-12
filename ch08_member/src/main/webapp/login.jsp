@@ -14,7 +14,9 @@
 </head>
 <body>
 <% if(id != null) { %>
-	
+	<b><%=id %></b>님 환영합니다<p/>
+	즐거운 쇼핑되십시요<p/>
+	<a href="logout.jsp">로그아웃</a>	
 <% } else { %>
 	<form method="post" action="loginProc.jsp" >
 		<table align="center">

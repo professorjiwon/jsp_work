@@ -19,6 +19,8 @@ public class LoginDB {
 		try {
 			con = pool.getConnection();
 			String query = "select count(*) from test where userid=? and userpw=?";
+	
+			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pwd);
 			rs = pstmt.executeQuery();

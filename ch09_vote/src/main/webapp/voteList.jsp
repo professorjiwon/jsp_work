@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 	* {margin: 0 auto;}
-	div {width: 500px;}
+	div {width: 800px;}
 	h2 {text-align: center;}
 	.m30 {margin-top : 30px;}
 </style>

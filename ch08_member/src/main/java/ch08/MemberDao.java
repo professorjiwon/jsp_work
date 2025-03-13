@@ -40,4 +40,30 @@ public class MemberDao {
 		return flag;
 	}
 	
+	public boolean insertMember(Member mbean) {
+		boolean flag = false;
+		try {
+			con = pool.getConnection();
+			sql = "insert into member values(?,?,?,?,?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mbean.getId());
+			pstmt.setString(2, mbean.getPwd());
+			pstmt.setString(3, mbean.getName());
+			pstmt.setString(4, mbean.getGender());
+			pstmt.setString(5, mbean.getBirthday());
+			pstmt.setString(6, mbean.getEmail());
+			pstmt.setString(7, mbean.getZipcode());
+			pstmt.setString(8, mbean.getAddress());
+			pstmt.setString(9, mbean.getDetail_address());
+			pstmt.setString(10, String.join(" ", mbean.getHobby()));
+			pstmt.setString(11, mbean.getJob());
+			
+			if(pstmt.executeUpdate() == 1)  // executeUpdate() : update가 잘 되었으면 1반환, 안됐으면 0반환
+				flag = true;	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
 }

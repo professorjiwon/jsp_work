@@ -8,7 +8,7 @@ create table member (
     zipcode char(5),
     address varchar2(100),
     detail_address varchar2(50),
-    hobby varchar2(5),
+    hobby varchar2(50),
     job varchar2(30)
 );
 

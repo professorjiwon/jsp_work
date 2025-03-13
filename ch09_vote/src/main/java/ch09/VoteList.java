@@ -13,7 +13,6 @@ public class VoteList {
 	}
 
 	public VoteList(int num, String question, String sdate, String edate, String wdate, int type, int active) {
-		super();
 		this.num = num;
 		this.question = question;
 		this.sdate = sdate;

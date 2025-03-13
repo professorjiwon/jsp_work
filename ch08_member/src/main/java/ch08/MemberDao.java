@@ -25,4 +25,19 @@ public class MemberDao {
 		return flag;
 	}
 	
+	public boolean chickId(String id) {
+		boolean flag = false;
+		try {
+			con = pool.getConnection();
+			sql = "select id from member where id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			flag = rs.next();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
 }

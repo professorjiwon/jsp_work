@@ -18,6 +18,7 @@
     }
     th {color:white; height: 40px; font-size: 20px;}
 </style>
+<script src="script.js"></script>
 </head>
 <body>
 	<form name="frm" method ="post" action="memberProc.jsp">
@@ -27,8 +28,9 @@
 			</tr>
 			<tr>
 				<td>아이디</td>
-				<td>							 	
-					<input type="button" value="ID중복확인"> 
+				<td>
+					<input name="id">							 	
+					<input type="button" value="ID중복확인" onclick="idCheck(this.form.id.value);"> 
 				</td>
 				<td>영문과 숫자로만 입력하세요</td>
 			</tr>

@@ -6,9 +6,9 @@
 	boolean result = mDao.chickId(id);
 	
 	if(result) {
-		out.print(id + "는 사용할 수 없습니다");
+		out.print(id + "는 사용할 수 없습니다<p/>");
 	} else {
-		out.print(id + "는 사용 가능 합니다");
+		out.print(id + "는 사용 가능 합니다<p/>");
 	}
 %>
 <!DOCTYPE html>

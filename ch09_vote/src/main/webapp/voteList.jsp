@@ -13,9 +13,9 @@
 <style type="text/css">
 	* {margin: 0 auto;}
 	div {width: 800px;}
-	h2, h5 {text-align: center;}
+	h2, h5, .cen {text-align: center;}
 	.m30 {margin-top : 30px;}
-	a {text-decoration: none; color:black; cursor:pointer;}
+	a {text-decoration: none !important; color:black !important; cursor:pointer !important;}
 </style>
 </head>
 <body>
@@ -29,7 +29,7 @@
 		
 		<h5 class="m30">설문 리스트</h4>
 		<table class="table">
-			<tr align="center">
+			<tr class="cen">
 				<th>번호</th>
 				<th>제목</th>
 				<th>시작일~종료일</th>

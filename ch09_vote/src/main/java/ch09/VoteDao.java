@@ -146,6 +146,34 @@ public class VoteDao {
 		}
 		return alist;
 	}
+	
+	// 투표하기(count 증가)
+	public int updateCount(int num, String[] itemnum) {  // 0,2,5
+		int reNum = 0;
+		
+		try {
+			con = pool.getConnection();
+			sql = "update VoteItem set count = count+1 where listnum=? and itemnum=?";
+			pstmt = con.prepareStatement(sql);
+			if(num == 0) {
+				num = getMaxNum();
+			}
+			
+			int result = 0;
+			for(int i=0; i<itemnum.length; i++) {
+				pstmt.setInt(1, num);
+				pstmt.setInt(2, Integer.parseInt(itemnum[i]));
+				result = pstmt.executeUpdate();
+			}
+			if(result == 1) 
+				reNum = num;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
+		}
+		return reNum;
+	}
 
 }
 

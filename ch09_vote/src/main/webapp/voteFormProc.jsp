@@ -8,20 +8,12 @@
 	
 	String[] itemnum = request.getParameterValues("itemnum");
 	
-	int result = vDao.updateCount(num, itemnum);
+	boolean result = vDao.updateCount(num, itemnum);
 	String msg = "투표가 등록되지 않았습니다.";
 	
-	if(result > 0) {
+	if(result) {
 		msg = "투표 등록이 되었습니다.";
 	}
-	
-/* 	if(result > 0) {
-		msg = "투표 등록이 되었습니다.";
-		if(num == 0)
-			num = result;
-	}
-	
-	 */
 %>
 <script type="text/javascript">
 	alert("<%=msg %>");

@@ -148,8 +148,8 @@ public class VoteDao {
 	}
 	
 	// 투표하기(count 증가)
-	public int updateCount(int num, String[] itemnum) {  // 0,2,5
-		int reNum = 0;
+	public boolean updateCount(int num, String[] itemnum) {  // 0,2,5
+		boolean flag = false;
 		
 		try {
 			con = pool.getConnection();
@@ -166,13 +166,14 @@ public class VoteDao {
 				result = pstmt.executeUpdate();
 			}
 			if(result == 1) 
-				reNum = num;
+				flag = true;
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			pool.freeConnection(con);
 		}
-		return reNum;
+		return flag;
 	}
 
 }

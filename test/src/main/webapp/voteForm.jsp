@@ -6,16 +6,20 @@
 	int num = 0;
 	if(!(request.getParameter("num") == null || request.getParameter("num").equals("")))      
 		num = Integer.parseInt(request.getParameter("num"));
-	
+	out.print("num : " + num);
 	VoteList vlist = vDao.getOneVote(num);
 	ArrayList<String> vitem = vDao.getItem(num);
 		
 	String question = vlist.getQuestion();
 	int type = vlist.getType();
+
 %>
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+console.log(num);
+</script>
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>
@@ -50,19 +54,13 @@
 				<tr align="center">
 					<td colspan="2">
 						<input type="submit" value="투표" >&emsp;&emsp;
-						<input type="button" value="결과" 
-						onclick="window.open('voteView.jsp?num=<%=num%>', 'voteview', 'width=800, height=500')">
+						<input type="button" value="결과">
 					</td> 
 				</tr>
 			</table>
+			
 			<input type="hidden" name="num" value="<%=num %>">
 		</form>
 	</div>
 </body>
 </html>
-
-
-
-
-
-

@@ -95,10 +95,11 @@
 			$("#btn1").click(function() {
 				$.ajax({
 					url : "ajax1.do",
-					data : {input: $("input1").val()},
+					data : {input: $("#input1").val()},
 					type : "get",
-					success : function() {
-						console.log("ajax 통신 성공");
+					success : function(result) {
+						console.log(result);
+						$("#output1").text(result);
 					},
 					error : function() {
 						console.log("ajax 통신 실패");
@@ -108,6 +109,169 @@
 		})
 	</script>
 	
+	<br><br>
+	
+	<!-- // 버튼을 클릭하면 id체크하기
+	<form action="idCheck.me">
+		ID : <input name="id" id="id">&emsp;<input type="button" value="ID중복확인" id="btn2"><br>
+		<input type="submit" value="회원가입" disabled>
+	</form>
+	
+	<script type="text/javascript">
+		$(() => {
+			$("#btn2").click(function() {
+				let $idInput = $("input[name=id]")
+				// let $idInput = $("#id");
+				$.ajax({
+					url : "idCheck.me",
+					data : {checkId : $idInput.val()},
+					success : function(result) {
+						console.log(result);
+						if(result == 'idN') {
+							alert("이미 사용중이거나 탈퇴한 아이디 입니다.");
+							$idInput.val("");
+							$idInput.focus();
+						} else {
+							if(confirm("사용 가능한 아이디 입니다. 사용하시겠습니까?")) {
+								$("form :submit").removeAttr("disabled");
+								$idInput.attr("readonly", true);
+							} else {
+								$idInput.val("");
+								$idInput.focus();
+							}
+						}
+					},
+					error : function() {
+						console.log("아이디 중복체크용 ajax통신실패");
+					}
+				})
+			})
+		})
+	</script>
+	 -->
+	 
+	 <!-- id input에 넣으면 바로바로 쓸 수 있는지 나타내줌 -->
+	 <form action="idCheck.me" id="enrollFrom">
+	 	<p>ID : <input name="id" id="id"></p>
+	 	<div id="checkResult" style="font-size:0.8em; display:none"></div>
+	 	<input type="submit" value="회원가입">&emsp;
+	 	<input type="reset" value="초기화">
+	 </form>
+	 
+	 <script>
+	 $(() => {
+		 const $idInput = $("#id");
+		 $idInput.keyup(function() {
+			 console.log($idInput.val());
+			 
+			 // 최소 3글자 이상 입력되었을때만 ajax요청올 중복체크
+			 if($idInput.val().length >= 3) {
+				 $.ajax({
+					url : "idCheck.me",
+				 	data : {checkId : $idInput.val()},
+				 	success : function(result) {
+				 		if(result == "idN") {
+				 			$('#checkResult').show();
+				 			$('#checkResult').css("color", "red").text("중복된 아이디 입니다. 다시 입력하세요.");
+				 			$('#enrollFrom :submit').attr("disabled", true);
+				 		} else {
+				 			$('#checkResult').show();
+				 			$('#checkResult').css("color", "green").text("멋진 아이디네요");
+				 			$('#enrollFrom :submit').attr("disabled", false);
+				 		}
+				 	},
+				 	error : function() {
+				 		console.log("아이디 중복체크용 ajax통신실패");
+				 	}
+				 })
+				 
+			 } else {
+				 $('#enrollFrom :submit').attr("disabled", true);
+			 }
+		 })
+	 })
+	 </script>
+	 
+	 <br><br>
+	 
+	 <h3>2. 버튼 클릭시 post 방식으로 서버에 여러개의 데이터 전송 및 응답</h3>
+	 이름 : <input id="name"><br>
+	 나이 : <input type="number" id="age"><br>
+	 <input type="button" id="btn3" value="전송"><br>
+	 
+<!-- 서블릿의 v1, v2실행시 모두 하나의 문자열로 받음
+	 응답 : <label id="output3"></label>
+	 
+	 <script>
+	 	$(() => {
+	 		$('#btn3').click(function() {
+	 			$.ajax({
+	 				url : "ajax3.do",
+	 				data : {
+	 					name : $('#name').val(),
+	 					age : $('#age').val()
+	 				},
+	 				type : "post",
+	 				success : function(result) {
+	 					console.log(result);
+	 					// v1과 v2는 모두 하나의 문자열로 들어옴
+	 					$('#output3').text(result);
+	 				},
+	 				error : function() {
+	 					console.log("ajax통신 실패");
+	 				}
+	 			})
+	 		})
+	 	})
+	 </script>
+	  -->
+	 
+	 <!-- 서블릿의 v3, v4에서 배열이나 객체로 반환 -->
+	 응답 : <ul id="output3">
+	 </ul>
+	 
+	 <script>
+	 $(() => {
+		 $('#btn3').click(function() {
+			 $.ajax({
+				 url : "ajax3.do",
+ 				 data : {
+ 					name : $('#name').val(),
+ 					age : $('#age').val()
+ 				 },
+ 				 type : "post",
+				 success:function(result) {
+					 console.log(result);
+					 /*  배열일 때
+					 console.log(result[0]);
+					 console.log(result[1]);
+					 
+					 const value = "<li>이름 : " + result[0] + "</li>" 
+					 			+ "<li>나이 : " + result[1] + "</li>";
+					 $('#output3').html(value);
+					 $('#name').val("");
+					 $('#age').val("");
+					 */
+					 
+					 // 객체일 때
+					 console.log(result.name);
+					 console.log(result.age);
+					 
+					 const value = "<li>이름 : " + result.name + "</li>" 
+					 			+ "<li>나이 : " + result.age + "</li>";
+					 $('#output3').html(value);
+					 $('#name').val("");
+					 $('#age').val("");
+				 },
+				 error:function() {
+					 console.log("ajax통신 실패");
+				 }
+			 })
+		 })
+	 })
+	 </script>
+	 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
 

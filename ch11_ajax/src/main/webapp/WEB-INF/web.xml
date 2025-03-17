@@ -8,7 +8,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AjaxController1</servlet-name>
-    <url-pattern>/ajax01/ajax1.do</url-pattern>
+    <url-pattern>/ajax1.do</url-pattern>
   </servlet-mapping>
   <display-name>ch11_ajax</display-name>
   <welcome-file-list>
@@ -19,4 +19,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>AjaxServletIdCheck</display-name>
+    <servlet-name>AjaxServletIdCheck</servlet-name>
+    <servlet-class>ajax01.AjaxServletIdCheck</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxServletIdCheck</servlet-name>
+    <url-pattern>/idCheck.me</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxServletController3</display-name>
+    <servlet-name>AjaxServletController3</servlet-name>
+    <servlet-class>ajax01.AjaxServletController3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxServletController3</servlet-name>
+    <url-pattern>/ajax3.do</url-pattern>
+  </servlet-mapping>
 </web-app>

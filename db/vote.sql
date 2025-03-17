@@ -16,6 +16,6 @@ create table voteitem (
     primary key(listnum, itemnum)
 );
 
-create sequence seq_vote nocache;
+create sequence seq_vote nocache; 
 
 

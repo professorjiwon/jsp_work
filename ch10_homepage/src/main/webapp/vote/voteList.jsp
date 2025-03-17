@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="ch09.*, java.util.*" %>
-<jsp:useBean id="vDao" class="ch09.VoteDao" />
+<%@ page import="vote.*, java.util.*" %>
+<jsp:useBean id="vDao" class="vote.VoteDao" />
 
 <!DOCTYPE html>
 <html>
@@ -52,7 +52,8 @@
 		%>
 			<tr>
 				<td colspan="3" align="right">
-					<input type="button" onclick="location.href='voteInsert.jsp'" value="설문작성하기">
+					<input type="button" onclick="location.href='voteInsert.jsp'" value="설문작성하기">&emsp;
+					<input type="button" onclick="location.href='../index.jsp'" value="홈으로">
 				</td>
 			</tr>
 		</table>

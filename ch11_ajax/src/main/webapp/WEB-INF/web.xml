@@ -8,7 +8,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AjaxController1</servlet-name>
-    <url-pattern>/ajax1.do</url-pattern>
+    <url-pattern>/ajax01/ajax1.do</url-pattern>
   </servlet-mapping>
   <display-name>ch11_ajax</display-name>
   <welcome-file-list>
@@ -27,7 +27,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AjaxServletIdCheck</servlet-name>
-    <url-pattern>/idCheck.me</url-pattern>
+    <url-pattern>/ajax01/idCheck.me</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -37,6 +37,26 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AjaxServletController3</servlet-name>
-    <url-pattern>/ajax3.do</url-pattern>
+    <url-pattern>/ajax01/ajax3.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxServletController4</display-name>
+    <servlet-name>AjaxServletController4</servlet-name>
+    <servlet-class>ajax01.AjaxServletController4</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxServletController4</servlet-name>
+    <url-pattern>/ajax01/ajax4.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxServletController5</display-name>
+    <servlet-name>AjaxServletController5</servlet-name>
+    <servlet-class>ajax01.AjaxServletController5</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxServletController5</servlet-name>
+    <url-pattern>/ajax01/ajax5.do</url-pattern>
   </servlet-mapping>
 </web-app>

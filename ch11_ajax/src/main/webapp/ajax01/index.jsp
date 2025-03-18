@@ -271,6 +271,86 @@
 	 })
 	 </script>
 	 
+	 <h3>3. 서버에 데이터 전송한 후, 조회된 bean객체를 응답데이터로 받을 때</h3>
+	 
+	 검색하고자하는 회원번호 ID : <input id="input4">&emsp;
+	 <input type="button" id="btn4" value="조회"><p/>
+	 
+	 <div id="output4"></div>
+	 
+	 <script>
+	 $(() => {
+		 $('#btn4').click(function() {
+			 $.ajax({
+				 url: "ajax4.do",
+				 data: {id: $('#input4').val()},
+				 success: function(result) {
+					 console.log(result);
+					 // JSONObject로 넘겼을 때
+					 /*
+					 const value = "******* 검색 결과 *******<br>"
+					 			+ "ID : "+ result.userId + "<br>"
+					 			+ "이름 : "+ result.userName + "<br>"
+					 			+ "성별 : "+ result.gender + "<br>"
+					 			+ "email : "+ result.email + "<br>";
+					 */
+					 
+					 // Gson으로 넘겼을 때
+					 const value = "******* 검색 결과 *******<br>"
+					 			+ "ID : "+ result.id + "<br>"
+					 			+ "이름 : "+ result.name + "<br>"
+					 			+ "성별 : "+ result.gender + "<br>"
+					 			+ "email : "+ result.email + "<br>";
+					 $('#output4').html(value);
+				 },
+				 error: function() {
+					 console.log("ajax통신 실패");
+				 }
+			 })
+		 })
+	 })
+	 </script>
+	 
+	 <br><br>
+	 
+	 <h3>4. 여러 bean객체들을 ArrayList로 받기</h3>
+	 
+	 <input type="button" id="btn5"><br><br>
+	 
+	 <table>
+	 	<thead>
+		 	<tr>
+		 		<th>ID</th>
+		 		<th>이름</th>
+		 		<th>성별</th>
+		 		<th>EMAIL</th>
+	 		</tr>
+	 	</thead>
+	 	<tbody>
+	 	
+	 	</tbody>
+	 </table>
+	 
+	 <script>
+	 $(() => {
+		 $('#btn5').click(function() {
+			 $.ajax({
+				 url: "ajax5.do",
+				 success : function(result) {
+					 console.log(result);
+				 },
+				 error: function() {
+					 console.log("ajax통신 실패");
+				 }
+			 })
+		 })
+	 })
+	 </script>
+	 
+	 
+	 
+	 
+	 
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

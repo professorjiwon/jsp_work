@@ -32,6 +32,7 @@
 	<script>
 	$(() => {
 		replyList();
+		// setInterval(replyList, 1000);
 	})	
 	
 	function replyList() {

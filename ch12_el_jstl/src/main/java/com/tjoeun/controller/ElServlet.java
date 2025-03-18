@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 import com.tjoeun.vo.Person;
@@ -43,6 +45,15 @@ public class ElServlet extends HttpServlet {
 		// requestScope에 담기
 		request.setAttribute("classRoom", "801호");
 		request.setAttribute("student", new Person("홍길동", 23, "남자"));
+		
+		// sessionScope에 담기
+		HttpSession session = request.getSession();
+		session.setAttribute("academy", "tjoeun");
+		session.setAttribute("teacher", new Person("김지원", 31, "여자"));
+		
+		// requestScope와 sessionScope에 동일한 키값으로 데이터 담기
+		request.setAttribute("scope", "request");
+		session.setAttribute("scope", "session");
 		
 		request.getRequestDispatcher("views/01_EL/01.el.jsp").forward(request, response);
 	}

@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import com.google.gson.Gson;
+
 
 public class AjaxServletController5 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -19,6 +21,7 @@ public class AjaxServletController5 extends HttpServlet {
 		ArrayList<Member> alist = new MemberDao().getAllMember(); 
 		
 		// 1. JSONArray : [{}, {}]
+		/*
 		JSONArray jArr = new JSONArray();
 		for(Member m : alist) {
 			JSONObject jObj = new JSONObject();
@@ -31,6 +34,10 @@ public class AjaxServletController5 extends HttpServlet {
 		
 		response.setContentType("application/json");
 		response.getWriter().print(jArr);
+		*/
+		
+		response.setContentType("application/json");
+		new Gson().toJson(alist, response.getWriter());
 	}
 
 }

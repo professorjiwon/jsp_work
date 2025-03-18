@@ -315,9 +315,9 @@
 	 
 	 <h3>4. 여러 bean객체들을 ArrayList로 받기</h3>
 	 
-	 <input type="button" id="btn5"><br><br>
+	 <input type="button" id="btn5" value="전송"><br><br>
 	 
-	 <table>
+	 <table id="output5" border="1">
 	 	<thead>
 		 	<tr>
 		 		<th>ID</th>
@@ -338,6 +338,17 @@
 				 url: "ajax5.do",
 				 success : function(result) {
 					 console.log(result);
+					 
+					 let value = "";
+					 for(let i=0; i<result.length; i++) {
+						 value += "<tr>"
+						 		+ "	<td>" + result[i].id + "</td>"
+						 		+ "	<td>" + result[i].name + "</td>"
+						 		+ "	<td>" + result[i].gender + "</td>"
+						 		+ "	<td>" + result[i].email + "</td>"
+						 		+ "</tr>";
+					 }
+					 $('#output5 tbody').html(value);
 				 },
 				 error: function() {
 					 console.log("ajax통신 실패");

@@ -1,5 +1,6 @@
 package com.tjoeun.controller;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -54,6 +55,10 @@ public class ElServlet extends HttpServlet {
 		// requestScope와 sessionScope에 동일한 키값으로 데이터 담기
 		request.setAttribute("scope", "request");
 		session.setAttribute("scope", "session");
+		
+		// applicationScope에 담기
+		ServletContext application = request.getServletContext();
+		application.setAttribute("scope", "application");
 		
 		request.getRequestDispatcher("views/01_EL/01.el.jsp").forward(request, response);
 	}

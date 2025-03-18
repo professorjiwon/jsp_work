@@ -61,10 +61,15 @@
 		page => request => session => application
 		application까지 찾았는데 키가 없으면 출력안됨(오류안남)
 	 -->
-	
-	
-	
-	
-	
+	 
+	 <h3>4. 직접 scope를 지정하여 접근하기</h3>
+	 <%
+	 	// pageScope
+	 	pageContext.setAttribute("scope", "page");
+	 %>
+	 pageScope에 담긴 값 : ${scope} 또는 ${pageScope.scope}<br>
+	 reqeustScope에 담긴 값 : ${requestScope.scope}<br>
+	 sessionScope에 담긴 값 : ${sessionScope.scope}<br>
+	 applicationScope에 담긴 값 : ${applicationScope.scope}<br>
 </body>
 </html>

@@ -219,6 +219,26 @@
 		</c:forTokens>
 	</ol>
 	
-	<br><br><br><br><br><br><br><br><br><br><br><br>
+	<hr>
+	
+	<h3>6. url, 쿼리 스트링</h3>
+	
+	<pre>
+	- url 경로를 생성하고 쿼리스트링을 정의해 둘 수 있는 태그
+	
+	  &lt;c:url var="변수명" value="요청할url"&gt;
+		&lt;c:param name="키" value="값" /&gt;
+		&lt;c:param name="키" value="값" /&gt;
+	  &lt;/c:url&gt;
+	</pre>
+	
+	<a href="list.do?Page=1&num=2">기존 방식</a><br>
+	
+	<c:url var="u" value="list.do">
+		<c:param name="nowPage" value="1" />
+		<c:param name="num" value="2" />
+	</c:url>
+	
+	<a href="${u}">c:url을 이용한 방식</a>
 </body>
 </html>
